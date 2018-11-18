@@ -18,7 +18,7 @@ export class Main extends React.Component<IMainProps, IMainState> {
     render() {
         return (
             <div>
-                Magic will begin with U soon...
+                Magic will begin with U soon ...
             </div>
         )
     }
