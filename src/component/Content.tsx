@@ -1,36 +1,41 @@
 import React from 'react';
+import { Post } from '../contract/contract';
+import { Tile } from './Tile';
+import { withStyles } from '@material-ui/core';
 
 interface IContentProps {
-
+    posts: Post[];
 }
 
 interface IContentStates {
-
 }
 
-function getFontStyle() {
-    return {
-        color: `white`,
-        fontSize: 50,
-        fontFamily: 'forte',
-
-    }
+const styles ={
+    grid :{
+        flexWrap: 'wrap' as 'wrap',
+    },
 }
 
-function getContentStyle() {
-    return {
-        backgroundColor: `#263238`
-    }
-}
 
+const CodeString = `Code<👓/> Eat🍔 Sleep😴 Repeat🔁`
 export class Content extends React.Component<IContentProps, IContentStates> {
+
+    constructor(props: any) {
+        super(props)
+    }
+
     render() {
+
+        const Images = this.props.posts.map(post => (
+            <Tile post={post}></Tile>
+        ))
+
         return (
-            <div style={getContentStyle()} className="flex-50 layout-row layout-align-center-center">
-                <span style={getFontStyle()} > Bhow Bhow..</span>
+            <div style={styles.grid} className="layout-row layout-align-center">
+            { Images }
             </div>
         )
     }
 }
 
-export default Content;
+export default withStyles(styles)(Content);
