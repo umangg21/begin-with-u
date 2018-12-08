@@ -54,95 +54,105 @@ export default class EditProfile extends React.Component<IEditProfileProps, IEdi
         return (
             <React.Fragment>
                 <Dialog open={this.props.openDialog}
-                    scroll='paper'
                     fullWidth={true}
                     maxWidth='sm'>
-                    <DialogTitle style={styles.dialogHeader}>
-                        <span>Edit Profile info</span>
-                    </DialogTitle>
-                    <DialogContent >
-                        <div className="layout-row layout-xs-column" style={styles.formEditInfo}>
-                            <span className="flex-30" style={styles.formLabel}>
-                                User Name :
+                    <div className="layout-row layout-xs-column">
+                        <DialogTitle style={styles.dialogHeader} className="show-xs hide-gt-xs">
+                            <span>Edit Profile info</span>
+                        </DialogTitle>
+                        <DialogContent style={styles.dialogContent}>
+                            <div className="layout-row layout-xs-column" style={styles.formEditInfo}>
+                                <span className="flex-30" style={styles.formLabel}>
+                                    User Name :
                             </span>
-                            <TextField
-                                margin="dense"
-                                id="userName"
-                                type="text"
-                                value={this.state.inProgressUserinfo.userName}
-                                fullWidth
-                                className="flex-70"
-                                onChange={this.handleChange}
-                            />
-                        </div>
+                                <TextField
+                                    required
+                                    margin="dense"
+                                    id="userName"
+                                    type="text"
+                                    value={this.state.inProgressUserinfo.userName}
+                                    fullWidth
+                                    className="flex-70"
+                                    onChange={this.handleChange}
+                                />
+                            </div>
 
-                        <div className="layout-row layout-xs-column " style={styles.formEditInfo}>
-                            <span className="flex-30" style={styles.formLabel}>
-                                Email :
+                            <div className="layout-row layout-xs-column " style={styles.formEditInfo}>
+                                <span className="flex-30" style={styles.formLabel}>
+                                    Email :
                             </span>
-                            <TextField
-                                margin="dense"
-                                id="email"
-                                type="text"
-                                value={this.state.inProgressUserinfo.email}
-                                fullWidth
-                                className="flex-70"
-                                onChange={this.handleChange}
-                            />
-                        </div>
+                                <TextField
+                                    required
+                                    margin="dense"
+                                    id="email"
+                                    type="email"
+                                    value={this.state.inProgressUserinfo.email}
+                                    fullWidth
+                                    className="flex-70"
+                                    onChange={this.handleChange}
+                                />
+                            </div>
 
-                        <div className="layout-row layout-xs-column" style={styles.formEditInfo}>
-                            <span className="flex-30" style={styles.formLabel}>
-                                User Id :
+                            <div className="layout-row layout-xs-column" style={styles.formEditInfo}>
+                                <span className="flex-30" style={styles.formLabel}>
+                                    User Id :
                             </span>
-                            <TextField
-                                margin="dense"
-                                id="userId"
-                                type="text"
-                                value={this.state.inProgressUserinfo.userId}
-                                fullWidth
-                                className="flex-70"
-                                onChange={this.handleChange}
-                            />
-                        </div>
+                                <TextField
+                                    required
+                                    margin="dense"
+                                    id="userId"
+                                    type="text"
+                                    value={this.state.inProgressUserinfo.userId}
+                                    fullWidth
+                                    className="flex-70"
+                                    onChange={this.handleChange}
+                                />
+                            </div>
 
-                        <div className="layout-row layout-xs-column" style={styles.formEditInfo}>
-                            <span className="flex-30" style={styles.formLabel}>
-                                Profile Info :
+                            <div className="layout-row layout-xs-column" style={styles.formEditInfo}>
+                                <span className="flex-30" style={styles.formLabel}>
+                                    Profile Info :
                             </span>
-                            <TextField
-                                margin="dense"
-                                id="profileInfo"
-                                type="text"
-                                value={this.state.inProgressUserinfo.profileInfo}
-                                fullWidth
-                                className="flex-70"
-                                onChange={this.handleChange}
-                            />
+                                <TextField
+                                    margin="dense"
+                                    id="profileInfo"
+                                    type="text"
+                                    value={this.state.inProgressUserinfo.profileInfo}
+                                    fullWidth
+                                    className="flex-70"
+                                    onChange={this.handleChange}
+                                />
+                            </div>
+                        </DialogContent>
+
+                        <div className="layout-column layout-align-space-between-center" style={styles.dialogDoodle}>
+                            <DialogTitle style={styles.dialogHeader} className="hide-xs">
+                                <span>Edit Profile info</span>
+                            </DialogTitle>
+                            <DialogActions style={styles.dialogActions} className="layout-row layout-align-space-around-center">
+
+                                <Button
+                                    variant="contained"
+                                    color="default"
+                                    size="small"
+                                    style={styles.dialogButton}
+                                    onClick={this.props.closeDialog}>
+                                    Cancel
+                                </Button>
+
+                                <Button
+                                    variant="contained"
+                                    color="default"
+                                    size="small"
+                                    style={styles.dialogButton}
+                                    onClick={this.saveProfile}>
+                                    <SaveIcon />
+                                    Save
+                                </Button>
+
+                            </DialogActions>
                         </div>
-                    </DialogContent>
-
-                    <DialogActions style={styles.dialogActions} className="layout-row layout-align-space-around-center">
-
-                        <Button
-                            variant="contained"
-                            color="default"
-                            size="small"
-                            style={styles.dialogButton}
-                            onClick={this.props.closeDialog}>
-                            Cancel
-                        </Button>
-
-                        <Button
-                            variant="contained"
-                            color="default"
-                            size="small"
-                            style={styles.dialogButton}
-                            onClick={this.saveProfile}>
-                            <SaveIcon />
-                            Save
-                        </Button>
-                    </DialogActions>
+                    </div>
                 </Dialog>
 
             </React.Fragment>

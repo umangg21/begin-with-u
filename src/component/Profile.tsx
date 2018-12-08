@@ -37,27 +37,29 @@ export class Profile extends React.Component<IProfileProps, IProfileStates> {
 
             <div className="layout-xs-column layout-row layout-align-center-center"
                 style={styles.profile}>
-                <Avatar className="flex-35" alt="Umang Gupta" style={styles.bigAvatar}
+                <Avatar className="flex-35" alt={this.props.userInfo.userName} style={styles.bigAvatar}
                     src="https://s3-ap-southeast-1.amazonaws.com/he-public-data/insta_1b956cd6.jpg"
                 />
                 <div className="flex-65 layout-column">
                     <div className="layout-row layout-xs-column" style={styles.heading}>
+                        <div className="show-xs" style={styles.formEditInfo}></div>
                         <span style={styles.userId} >{this.props.userInfo.userId}</span>
-                        <Button 
-                            variant="contained" 
-                            color="default" 
-                            size="small" 
+                        <Button
+                            variant="contained"
+                            color="default"
+                            size="small"
                             style={styles.editButton}
                             onClick={this.handleclick}>
                             <SettingIcon />
                             Edit Profile
                         </Button>
-                        <EditProfile 
-                            openDialog={this.state.openDialog}
-                            closeDialog={this.closeEditProfile}
-                            userInfo={this.props.userInfo}
-                            saveProfile={this.props.saveProfile} 
-                            />
+                        {this.state.openDialog &&
+                            <EditProfile
+                                openDialog={this.state.openDialog}
+                                closeDialog={this.closeEditProfile}
+                                userInfo={this.props.userInfo}
+                                saveProfile={this.props.saveProfile}
+                            />}
                     </div>
                     <div className="layout-row layout-xs-column" style={styles.heading}>
                         <span className="layout-row" style={styles.text}>
@@ -74,7 +76,9 @@ export class Profile extends React.Component<IProfileProps, IProfileStates> {
                         </span>
                     </div>
                     <span style={styles.userName}>{this.props.userInfo.userName}</span>
-                    <span style={styles.profileInfo}>"{this.props.userInfo.profileInfo}"</span>
+                    {this.props.userInfo.profileInfo &&
+                        <span style={styles.profileInfo}>"{this.props.userInfo.profileInfo}"</span>
+                    }
                 </div>
             </div>
         )

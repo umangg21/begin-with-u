@@ -1,16 +1,24 @@
 export const styles = {
 
     dialogHeader: {
-        height: `20px`,
-        backgroundColor: `#EEEEEE`
+        height: `20px`,        
+        backgroundColor: `#f5f5f5`,
     },
 
     dialogActions: {
         minHeight: `50px`,
-        backgroundColor: `#EEEEEE`,
         margin: `0px`
     },
 
+    dialogContent:{
+
+        backgroundColor: `#EEEEEE`,
+    },
+
+    dialogDoodle:{
+        minHeight: `fit-content`,
+        backgroundColor: `#f5f5f5`,
+    },
 
     row: {
         display: 'flex',
