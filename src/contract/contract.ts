@@ -7,6 +7,7 @@ export interface Users {
 export interface Userinfo {
     userId: string;
     userName: string;
+    email: string;
     profileInfo: string;
     profileImage: string;
     noOfPosts: number;

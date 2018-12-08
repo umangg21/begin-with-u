@@ -1,36 +1,55 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core';
-import { Post } from '../contract/contract';
+import { Post, Userinfo } from '../contract/contract';
+import { styles } from './Styles';
+import ImageViewer from './ImageViewer';
 
 interface ITileProps {
-    post : Post;
+    userInfo: Userinfo;
+    post: Post;
+    increaseLike: any;
+    addComment: any;
 }
 
 interface ITileStates {
-}
-
-const padding: string = '15px';
-
-const styles = {
-    tileView: {
-        paddingBottom: padding,
-        paddingLeft: padding,
-        paddingRight: padding,
-        paddingTop: padding,
-    },
-
-    image:{
-        height: `250px`,
-        width: `250px`,        
-    }
-
+    openViewer: boolean;
 }
 
 export class Tile extends React.Component<ITileProps, ITileStates> {
+
+    constructor(props: any) {
+        super(props)
+
+        this.state = { openViewer: false }
+    }
+
+    openViewer = (event: any) => {
+        this.setState({ openViewer: true })
+    }
+
+    closeViewer = (event: any) => {
+        this.setState({ openViewer: false })
+    }
+
     render() {
         return (
             <div style={styles.tileView} className="">
-                <img style={styles.image} src={this.props.post.Image}></img>
+
+                <img
+                    style={styles.image}
+                    onClick={this.openViewer}
+                    src={this.props.post.Image}>
+                </img>
+
+                {this.state.openViewer &&
+                    <ImageViewer
+                        userInfo={this.props.userInfo}
+                        post={this.props.post}
+                        openViewer={this.state.openViewer}
+                        closeImageView={this.closeViewer}
+                        increaseLike={this.props.increaseLike}
+                        addComment={this.props.addComment}
+                    ></ImageViewer>}
             </div>
         )
     }

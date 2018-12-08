@@ -1,78 +1,34 @@
 import React from 'react';
-import { Avatar } from '@material-ui/core';
+import { Avatar, Button } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 import { Userinfo } from '../contract/contract';
 
+import SettingIcon from '@material-ui/icons/Settings';
+import EditProfile from './EditProfile';
+import { styles } from './Styles';
 
 interface IProfileProps {
     userInfo: Userinfo;
+    saveProfile: Function;
 }
 
 interface IProfileStates {
-    val: number;
-}
-
-const styles = {
-    row: {
-        display: 'flex',
-        justifyContent: 'center',
-    },
-    avatar: {
-        margin: 10,
-    },
-    bigAvatar: {
-        minWidth: `150px`,
-        minHeight: `150px`,
-        marginRight: `50px`,
-    },
-
-    profile: {
-        paddingTop: '40px',
-        paddingRight: `20px`,
-        paddingLeft: `20px`,
-        paddingBottom: `20px`,
-    },
-
-    userId: {
-        fontSize: 28,
-        paddingBottom: `20px`,
-        fontWeight: 600,
-    },
-
-    userName: {
-        fontWeight: 500,
-        fontSize: `larger`,
-    },
-
-    text: {
-        paddingRight: `20px`,
-        paddingLeft: `3px`,
-    },
-
-    boldFont: {
-        fontWeight: 500,
-    },
-
-    heading: {
-        paddingBottom: `10px`,
-    },
-
-    profileInfo: {
-        fontStyle: 'italic',
-        paddingTop: `5px`,
-    }
-
+    openDialog: boolean;
 }
 
 export class Profile extends React.Component<IProfileProps, IProfileStates> {
 
     constructor(props: any) {
         super(props);
-        this.state = { val: 0 }
+        this.state = { openDialog: false }
     }
 
-    handleclick = () => {
-        this.setState({ val: this.state.val + 1 });
+    handleclick = (event: any) => {
+        this.setState({ openDialog: true });
+    }
+
+    closeEditProfile = () => {
+        this.setState({ openDialog: false });
     }
 
     render() {
@@ -85,8 +41,24 @@ export class Profile extends React.Component<IProfileProps, IProfileStates> {
                     src="https://s3-ap-southeast-1.amazonaws.com/he-public-data/insta_1b956cd6.jpg"
                 />
                 <div className="flex-65 layout-column">
-
-                    <span style={styles.userId} >{this.props.userInfo.userId}</span>
+                    <div className="layout-row layout-xs-column" style={styles.heading}>
+                        <span style={styles.userId} >{this.props.userInfo.userId}</span>
+                        <Button 
+                            variant="contained" 
+                            color="default" 
+                            size="small" 
+                            style={styles.editButton}
+                            onClick={this.handleclick}>
+                            <SettingIcon />
+                            Edit Profile
+                        </Button>
+                        <EditProfile 
+                            openDialog={this.state.openDialog}
+                            closeDialog={this.closeEditProfile}
+                            userInfo={this.props.userInfo}
+                            saveProfile={this.props.saveProfile} 
+                            />
+                    </div>
                     <div className="layout-row layout-xs-column" style={styles.heading}>
                         <span className="layout-row" style={styles.text}>
                             <span style={styles.boldFont}>{this.props.userInfo.noOfPosts}</span>

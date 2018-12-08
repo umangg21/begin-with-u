@@ -1,7 +1,7 @@
 import React from 'react';
 import { Content } from './Content';
 import Profile from './Profile';
-import { Users } from '../contract/contract';
+import { Users, Userinfo, Post } from '../contract/contract';
 import axios from 'axios';
 
 export interface IHomeProps {
@@ -45,29 +45,49 @@ export class Home extends React.Component<IHomeProps, IHomeState> {
         event.preventDefault();
     };
 
-    componentDidMount() {
-
-
-        axios(IMAGE_API,
-            {
-                method: 'GET',
-                headers: {
-                    Accept: 'application/json',
-                    'Content-Type': 'application/json',
-                },
-                withCredentials: true,            
-            })
-            .then((data: any) => {
-                console.log(data)
-                this.setState({
-                    user: { ...this.state.user, posts: data }
-                })
-            })
-            .catch(
-                ex =>
-                    console.log(ex)
-            )
+    saveProfile = (data: Userinfo) => {
+        this.setState({ user: { ...this.state.user, userinfo: data } })
     }
+
+    increaseLike = (postData: Post) =>{
+        let postsData= this.state.user.posts
+        let postIndex = postsData.findIndex(post => post.Image == postData.Image )
+        postsData[postIndex].likes +=1
+        this.setState({ user: { ...this.state.user, posts: postsData } })
+    }
+
+    addComment= (postData: Post, newComment: string) =>{
+        let postsData= this.state.user.posts
+        let postIndex = postsData.findIndex(post => post.Image == postData.Image )
+        if(postsData[postIndex].comments == null){
+            postsData[postIndex].comments = [];
+        }
+        postsData[postIndex].comments.push(newComment);
+        this.setState({ user: { ...this.state.user, posts: postsData } })
+    }
+    // componentDidMount() {
+
+
+    //     axios(IMAGE_API,
+    //         {
+    //             method: 'GET',
+    //             headers: {
+    //                 Accept: 'application/json',
+    //                 'Content-Type': 'application/json',
+    //             },
+    //             withCredentials: true,            
+    //         })
+    //         .then((data: any) => {
+    //             console.log(data)
+    //             this.setState({
+    //                 user: { ...this.state.user, posts: data }
+    //             })
+    //         })
+    //         .catch(
+    //             ex =>
+    //                 console.log(ex)
+    //         )
+    // }
 
     render() {
         return (
@@ -75,8 +95,17 @@ export class Home extends React.Component<IHomeProps, IHomeState> {
                 <div className="layout-row" style={getHomeStyle()}>
                     <div className="flex-15"></div>
                     <div className="flex-70 layout-column layout-align-space-around-center">
-                        <Profile userInfo={this.state.user.userinfo} />
-                        {this.state.user.posts && <Content posts={this.state.user.posts} />}
+                        <Profile
+                            userInfo={this.state.user.userinfo}
+                            saveProfile={this.saveProfile}
+                        />
+                        {this.state.user.posts &&
+                            <Content
+                                userInfo={this.state.user.userinfo}
+                                posts={this.state.user.posts}
+                                increaseLike={this.increaseLike}
+                                addComment={this.addComment}
+                            />}
                     </div>
                     <div className="flex-15"></div>
                 </div>

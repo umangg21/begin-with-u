@@ -1,17 +1,20 @@
 import React from 'react';
-import { Post } from '../contract/contract';
+import { Post, Userinfo } from '../contract/contract';
 import { Tile } from './Tile';
 import { withStyles } from '@material-ui/core';
 
 interface IContentProps {
+    userInfo: Userinfo;
     posts: Post[];
+    increaseLike: any;
+    addComment: any;
 }
 
 interface IContentStates {
 }
 
-const styles ={
-    grid :{
+const styles = {
+    grid: {
         flexWrap: 'wrap' as 'wrap',
     },
 }
@@ -26,13 +29,20 @@ export class Content extends React.Component<IContentProps, IContentStates> {
 
     render() {
 
+        let count = 0;
         const Images = this.props.posts.map(post => (
-            <Tile post={post}></Tile>
+            <Tile
+                userInfo={this.props.userInfo}
+                key={++count}
+                post={post}
+                increaseLike={this.props.increaseLike}
+                addComment={this.props.addComment}
+            ></Tile>
         ))
 
         return (
             <div style={styles.grid} className="layout-row layout-align-center">
-            { Images }
+                {Images}
             </div>
         )
     }
