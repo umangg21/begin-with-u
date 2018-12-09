@@ -6,6 +6,7 @@ Instagram App is responsive App : Tested on Desktop as well as Mobile.
 
 # Functionality:
 
+```sh
 1. Home Page of User
     a. View of Display Picture of User
     b. View of User Info
@@ -27,6 +28,7 @@ Instagram App is responsive App : Tested on Desktop as well as Mobile.
     c. View/Add Comment
     d. View Post Upload Date
     c. Delete Post
+```
 
 # How to run app locally:
 
@@ -41,6 +43,59 @@ When you’re ready to deploy to production, create a minified bundle with `npm 
 
 #Screenshots
 
+1. Destop View
+
+<p align='center'>
+<img src='https://raw.githubusercontent.com/umangg21/begin-with-u/master/Screenshots/Insta_Desktop.png' width='600' alt='npm start'>
+</p>
+
+2. Destop Edit Info
+
+<p align='center'>
+<img src='https://raw.githubusercontent.com/umangg21/begin-with-u/master/Screenshots/Insta_EditInfo.png' width='600' alt='npm start'>
+</p>
+
+3. Destop New Post
+
+<p align='center'>
+<img src='https://raw.githubusercontent.com/umangg21/begin-with-u/master/Screenshots/Insta_NewPost.png' width='600' alt='npm start'>
+</p>
+
+4. Destop Image View
+
+<p align='center'>
+<img src='https://raw.githubusercontent.com/umangg21/begin-with-u/master/Screenshots/Insta_ImageViewer.png' width='600' alt='npm start'>
+</p>
+
+5. Mobile View
+
+<p align='center'>
+<img src='https://raw.githubusercontent.com/umangg21/begin-with-u/master/Screenshots/Insta_Mobile.png' width='600' alt='npm start'>
+</p>
+
+6. Mobile View 2
+
+<p align='center'>
+<img src='https://raw.githubusercontent.com/umangg21/begin-with-u/master/Screenshots/Insta_Mobile_2.png' width='600' alt='npm start'>
+</p>
+
+7. Mobile Edit Info
+
+<p align='center'>
+<img src='https://raw.githubusercontent.com/umangg21/begin-with-u/master/Screenshots/Insta_Mobile_EditInfo.png' width='600' alt='npm start'>
+</p>
+
+7. Mobile New Post
+
+<p align='center'>
+<img src='https://raw.githubusercontent.com/umangg21/begin-with-u/master/Screenshots/Insta_Mobile_NewPost.png' width='600' alt='npm start'>
+</p>
+
+9. Mobile Image View
+
+<p align='center'>
+<img src='https://raw.githubusercontent.com/umangg21/begin-with-u/master/Screenshots/Insta_Mobile_ImageView.png' width='600' alt='npm start'>
+</p>
 
 # Link 
 
