@@ -77,18 +77,23 @@ export default class NewPost extends React.Component<INewPostProps, INewPostStat
         return (
             <React.Fragment>
                 <Dialog
+                    disableEscapeKeyDown
+                    disableRestoreFocus
                     maxWidth="md"
+                    scroll="paper"
                     fullWidth={true}
                     open={this.props.openDialog}
                 >
 
                     <div className="layout-row layout-xs-column">
-                        <div className="flex-60 layout-row layout-align-center-center" style={styles.newPostImageContainer}> 
+                        <div className="flex-60 layout-row" style={styles.newPostImageContainer}>
                             {this.state.inProgressPost.Image &&
-                                <img className="flex-100" src={this.state.inProgressPost.Image}></img>
+                                <img
+                                    className="flex-100"
+                                    src={this.state.inProgressPost.Image}></img>
                             }
                         </div>
-                        <div className="layout-column flex-40" style={styles.imageInfoDialog}>
+                        <div className="flex-40" style={styles.newPostInfoDialog}>
                             <div className="layout-row layout-align-space-between-center" style={styles.newPostHead}>
                                 <span style={styles.ImageUserId}>New Post</span>
                                 <IconButton color="inherit"
@@ -98,40 +103,41 @@ export default class NewPost extends React.Component<INewPostProps, INewPostStat
                                 </IconButton>
                             </div>
 
-                            <input
-                                accept="image/*,.jpg,.png,.jpeg"
-                                style={{ display: 'none' }}
-                                id="file"
-                                type="file"
-                                onChange={this.handleFile} />
+                            <div className="layout-row layout-align-start-center" >
+                                <input
+                                    accept="image/*,.jpg,.png,.jpeg"
+                                    style={{ display: 'none' }}
+                                    id="file"
+                                    type="file"
+                                    onChange={this.handleFile} />
 
-                            <label htmlFor="file">
-                                <Button
-                                    variant="contained"
-                                    color="default"
-                                    component="span"
-                                    style={{ margin: 8 }}
-                                    onClick={e => e.stopPropagation()}>
-                                    <CloudUploadIcon />
-                                    Upload
+                                <label htmlFor="file">
+                                    <Button
+                                        variant="contained"
+                                        color="default"
+                                        component="span"
+                                        style={{ margin: 8 }}
+                                        onClick={e => e.stopPropagation()}>
+                                        <CloudUploadIcon />
+                                        Upload
                                 </Button>
-                            </label>
+                                </label>
+                            </div>
 
 
-                            <TextField
-                                margin="normal"
-                                id="comment"
-                                type="text"
-                                value={this.state.inProgressPost.comments[0]}
-                                label="Add a comment"
-                                fullWidth
-                                className="flex-70"
-                                onChange={this.handleCommentChange}
-                                style={styles.addComment}
-                            />
+                            <div className="layout-row layout-align-start-center" >
+                                <TextField
+                                    margin="normal"
+                                    id="comment"
+                                    type="text"
+                                    value={this.state.inProgressPost.comments[0]}
+                                    label="Add a comment"
+                                    fullWidth
+                                    onChange={this.handleCommentChange}
+                                />
+                            </div>
 
-                            <DialogActions style={styles.dialogActions} className="layout-row layout-align-space-around-center">
-
+                            <div style={styles.dialogActions} className="layout-row layout-align-space-around-center">
                                 <Button
                                     variant="contained"
                                     color="default"
@@ -140,8 +146,8 @@ export default class NewPost extends React.Component<INewPostProps, INewPostStat
                                     onClick={this.props.closeDialog}>
                                     Cancel
                                 </Button>
-
                                 <Button
+                                    disabled={this.state.inProgressPost.Image == ""}
                                     variant="contained"
                                     color="default"
                                     size="small"
@@ -150,8 +156,7 @@ export default class NewPost extends React.Component<INewPostProps, INewPostStat
                                     <SaveIcon />
                                     Save Post
                                 </Button>
-
-                            </DialogActions>
+                            </div>
                         </div>
                     </div>
 

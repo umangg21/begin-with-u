@@ -48,11 +48,13 @@ export class Profile extends React.Component<IProfileProps, IProfileStates> {
 
             <div className="layout-xs-column layout-row layout-align-center-center"
                 style={styles.profile}>
-                <Avatar className="flex-35" alt={this.props.userInfo.userName} style={styles.bigAvatar}
-                    src="https://s3-ap-southeast-1.amazonaws.com/he-public-data/insta_1b956cd6.jpg"
-                />
+                <div className="flex-35 layout-row layout-align-center-center" >
+                    <Avatar alt={this.props.userInfo.userName} style={styles.bigAvatar}
+                        src="https://s3-ap-southeast-1.amazonaws.com/he-public-data/insta_1b956cd6.jpg"
+                    />
+                </div>
                 <div className="flex-65 layout-column">
-                    <div className="layout-row layout-xs-column" style={styles.heading}>
+                    <div className="layout-row layout-align-space-between-center layout-xs-column" style={styles.heading}>
                         <div className="show-xs  hide-gt-xs" style={styles.formEditInfo}></div>
                         <span style={styles.userId} >{this.props.userInfo.userId}</span>
                         <Button

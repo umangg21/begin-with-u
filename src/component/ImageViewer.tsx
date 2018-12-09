@@ -68,13 +68,16 @@ export class ImageViewer extends React.Component<IImageViewerProps, IImageViewer
                 <Dialog open={this.props.openViewer}
                     disableEscapeKeyDown
                     disableRestoreFocus
-                    scroll='paper'
+                    scroll='paper'                    
+                    maxWidth="md"
                     fullWidth={true}>
-                    <DialogContent className="layout-row layout-xs-column " style={styles.imageDialog}>
-                        <img
-                            className="flex-60"
-                            src={this.props.post.Image}>
-                        </img>
+                    <div className="layout-row layout-xs-column " style={styles.imageDialog}>
+                        <div className="flex-60 layout-row">
+                            <img
+                                className="flex-100"
+                                src={this.props.post.Image}>
+                            </img>
+                        </div>
 
                         <div className="flex-40" style={styles.imageInfoDialog}>
 
@@ -100,7 +103,7 @@ export class ImageViewer extends React.Component<IImageViewerProps, IImageViewer
 
                             </div>
                             <div className="layout-row layout-align-start-center" style={styles.imageInfo} >
-                            <span style={styles.timestamp} >{UploadeString}</span>
+                                <span style={styles.timestamp} >{UploadeString}</span>
                             </div>
                             <div className="layout-row layout-align-space-between-center" style={styles.imageInfo} >
                                 <TextField
@@ -125,7 +128,7 @@ export class ImageViewer extends React.Component<IImageViewerProps, IImageViewer
                                 <Button
                                     variant="contained"
                                     color="default"
-                                    size="small"                                    
+                                    size="small"
                                     onClick={this.deletePost}>
                                     <DeleteIcon />
                                     Delete Post
@@ -133,7 +136,7 @@ export class ImageViewer extends React.Component<IImageViewerProps, IImageViewer
                             </div>
                         </div>
 
-                    </DialogContent>
+                    </div>
 
                 </Dialog>
 

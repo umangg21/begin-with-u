@@ -16,8 +16,8 @@ export const styles = {
     },
 
     newPostImageContainer: {
-        overflow: `overlay`,
         backgroundColor: `#EEEEEE`,
+        padding: `0px`
     },
 
     dialogDoodle: {
@@ -35,8 +35,6 @@ export const styles = {
     bigAvatar: {
         minWidth: `150px`,
         minHeight: `150px`,
-        marginRight: `50px`,
-        marginLeft: `50px`,
     },
 
     profile: {
@@ -74,6 +72,7 @@ export const styles = {
 
     heading: {
         paddingBottom: `10px`,
+        minWidth: `max-content`
     },
 
     profileInfo: {
@@ -83,7 +82,7 @@ export const styles = {
 
     editButton: {
         height: `min-content`,
-        marginRight: `20px`,
+        marginRight: `10px`,
         marginBottom: `20px`
     },
 
@@ -143,6 +142,10 @@ export const styles = {
         overflow: `overlay`
     },
 
+    newPostInfoDialog: {
+        padding: `20px`,
+    },
+
     imageInfo: {
         borderBottomColor: `#EEEEEE`,
         borderBottomWidth: `thin`,
@@ -152,7 +155,7 @@ export const styles = {
 
     newPostHead: {
         marginTop: `10px`,
-        marginBottom: `10px`,
+        marginBottom: `20px`,
         marginLeft: `10px`,
         marginRight: `10px`,
     },

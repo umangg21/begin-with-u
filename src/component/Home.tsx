@@ -2,7 +2,6 @@ import React from 'react';
 import { Content } from './Content';
 import Profile from './Profile';
 import { Users, Userinfo, Post } from '../contract/contract';
-import axios from 'axios';
 
 export interface IHomeProps {
 }
@@ -30,32 +29,20 @@ export class Home extends React.Component<IHomeProps, IHomeState> {
 
     }
 
-    // getImages(){
-    //     fetch(IMAGE_API)
-    //     .then(response => response.json())
-    //     .then(
-    //         data => this.setState( {
-    //             user: { ...this.state.user, posts : data }})
-    //     )
-    //     .catch()
-    // }
-
-    handleChange = (event: any, val: any) => {
-        this.setState({ value: val });
-        event.preventDefault();
-    };
-
+    //  saveProfile : Method will save modified info of a profile
     saveProfile = (data: Userinfo) => {
         this.setState({ user: { ...this.state.user, userinfo: data } })
     }
 
+    //  increaseLike : Method will save increase the no of likes of a post
     increaseLike = (postData: Post) => {
         let postsData = this.state.user.posts
         let postIndex = postsData.findIndex(post => post.Image == postData.Image)
         postsData[postIndex].likes += 1
         this.setState({ user: { ...this.state.user, posts: postsData } })
     }
-
+    
+    //  addComment : Method will add comment to a post
     addComment = (postData: Post, newComment: string) => {
         let postsData = this.state.user.posts
         let postIndex = postsData.findIndex(post => post.Image == postData.Image)
@@ -65,7 +52,8 @@ export class Home extends React.Component<IHomeProps, IHomeState> {
         postsData[postIndex].comments.push(newComment);
         this.setState({ user: { ...this.state.user, posts: postsData } })
     }
-
+    
+    //  deletePost : Method will delete the post
     deletePost = (postData: Post) => {
         let postsData = this.state.user.posts;
         let postIndex = postsData.findIndex(post => post.Image == postData.Image);
@@ -73,6 +61,7 @@ export class Home extends React.Component<IHomeProps, IHomeState> {
         this.setState({ user: { ...this.state.user, posts: postsData } });
     }
 
+    //  deletePost : Method will add a new post
     addPost = (postData: Post) => {
         let postsData = this.state.user.posts;        
         postsData.unshift(postData)
