@@ -8,6 +8,7 @@ interface IContentProps {
     posts: Post[];
     increaseLike: any;
     addComment: any;
+    deletePost: any;
 }
 
 interface IContentStates {
@@ -37,6 +38,7 @@ export class Content extends React.Component<IContentProps, IContentStates> {
                 post={post}
                 increaseLike={this.props.increaseLike}
                 addComment={this.props.addComment}
+                deletePost={this.props.deletePost}
             ></Tile>
         ))
 

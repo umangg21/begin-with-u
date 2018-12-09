@@ -1,10 +1,11 @@
 import React from 'react'
 import { Post, Userinfo } from '../contract/contract';
-import { Dialog, DialogContent, IconButton, TextField } from '@material-ui/core';
+import { Dialog, DialogContent, IconButton, TextField, Button } from '@material-ui/core';
 import { styles } from './Styles';
 import CloseIcon from '@material-ui/icons/Close';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import AddIcon from '@material-ui/icons/Add';
+import DeleteIcon from '@material-ui/icons/Delete';
 
 interface IImageViewerProps {
     userInfo: Userinfo;
@@ -12,7 +13,8 @@ interface IImageViewerProps {
     openViewer: boolean;
     closeImageView: any;
     increaseLike: any;
-    addComment: any
+    addComment: any;
+    deletePost: any;
 }
 
 interface IImageViewerStates {
@@ -32,15 +34,20 @@ export class ImageViewer extends React.Component<IImageViewerProps, IImageViewer
         this.setState({ comment: newval });
     }
 
-    addComment = (event: any) =>{
-        if(this.state.comment){
-            this.props.addComment(this.props.post, this.state.comment);        
+    addComment = (event: any) => {
+        if (this.state.comment) {
+            this.props.addComment(this.props.post, this.state.comment);
             this.setState({ comment: "" });
         }
     }
 
     increaseLike = (event: any) => {
         this.props.increaseLike(this.props.post);
+    }
+
+    deletePost = (event: any) => {
+        this.props.deletePost(this.props.post);
+        this.props.closeImageView();
     }
 
     render() {
@@ -53,7 +60,8 @@ export class ImageViewer extends React.Component<IImageViewerProps, IImageViewer
         }
 
         const likeString = `${this.props.post.likes} likes `
-
+        let time = new Date(this.props.post.timestamp);
+        const UploadeString = "Uploaded: " + time.toDateString();
 
         return (
             <React.Fragment>
@@ -71,7 +79,7 @@ export class ImageViewer extends React.Component<IImageViewerProps, IImageViewer
                         <div className="flex-40" style={styles.imageInfoDialog}>
 
                             <div className="layout-row layout-align-space-between-center" style={styles.imageInfo}>
-                                <span style={styles.boldFont}>{this.props.userInfo.userId}</span>
+                                <span style={styles.ImageUserId}>{this.props.userInfo.userId}</span>
                                 <IconButton color="inherit"
                                     onClick={this.props.closeImageView}
                                     aria-label="Close">
@@ -90,6 +98,9 @@ export class ImageViewer extends React.Component<IImageViewerProps, IImageViewer
                                 </IconButton>
                                 <span style={styles.boldFont}>{likeString} </span>
 
+                            </div>
+                            <div className="layout-row layout-align-start-center" style={styles.imageInfo} >
+                            <span style={styles.timestamp} >{UploadeString}</span>
                             </div>
                             <div className="layout-row layout-align-space-between-center" style={styles.imageInfo} >
                                 <TextField
@@ -110,6 +121,16 @@ export class ImageViewer extends React.Component<IImageViewerProps, IImageViewer
                                 </IconButton>
                             </div>
 
+                            <div className="layout-row layout-align-center-center" style={styles.deleteButton}>
+                                <Button
+                                    variant="contained"
+                                    color="default"
+                                    size="small"                                    
+                                    onClick={this.deletePost}>
+                                    <DeleteIcon />
+                                    Delete Post
+                            </Button>
+                            </div>
                         </div>
 
                     </DialogContent>

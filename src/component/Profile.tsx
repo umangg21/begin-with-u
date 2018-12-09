@@ -1,34 +1,45 @@
 import React from 'react';
-import { Avatar, Button } from '@material-ui/core';
+import { Avatar, Button, Icon } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 import { Userinfo } from '../contract/contract';
-
+import EditIcon from '@material-ui/icons/Edit';
 import SettingIcon from '@material-ui/icons/Settings';
 import EditProfile from './EditProfile';
 import { styles } from './Styles';
+import NewPost from './NewPost';
 
 interface IProfileProps {
     userInfo: Userinfo;
     saveProfile: Function;
+    addPost: Function;
 }
 
 interface IProfileStates {
-    openDialog: boolean;
+    openEditProfileDialog: boolean;
+    openNewPostDialog: boolean;
 }
 
 export class Profile extends React.Component<IProfileProps, IProfileStates> {
 
     constructor(props: any) {
         super(props);
-        this.state = { openDialog: false }
+        this.state = { openEditProfileDialog: false, openNewPostDialog: false }
     }
 
-    handleclick = (event: any) => {
-        this.setState({ openDialog: true });
+    openEditProfile = (event: any) => {
+        this.setState({ openEditProfileDialog: true });
     }
 
     closeEditProfile = () => {
-        this.setState({ openDialog: false });
+        this.setState({ openEditProfileDialog: false });
+    }
+
+    openNewPost = (event: any) => {
+        this.setState({ openNewPostDialog: true });
+    }
+
+    closeNewPost = () => {
+        this.setState({ openNewPostDialog: false });
     }
 
     render() {
@@ -42,23 +53,39 @@ export class Profile extends React.Component<IProfileProps, IProfileStates> {
                 />
                 <div className="flex-65 layout-column">
                     <div className="layout-row layout-xs-column" style={styles.heading}>
-                        <div className="show-xs" style={styles.formEditInfo}></div>
+                        <div className="show-xs  hide-gt-xs" style={styles.formEditInfo}></div>
                         <span style={styles.userId} >{this.props.userInfo.userId}</span>
                         <Button
                             variant="contained"
                             color="default"
                             size="small"
                             style={styles.editButton}
-                            onClick={this.handleclick}>
+                            onClick={this.openEditProfile}>
                             <SettingIcon />
                             Edit Profile
                         </Button>
-                        {this.state.openDialog &&
+                        {this.state.openEditProfileDialog &&
                             <EditProfile
-                                openDialog={this.state.openDialog}
+                                openDialog={this.state.openEditProfileDialog}
                                 closeDialog={this.closeEditProfile}
                                 userInfo={this.props.userInfo}
                                 saveProfile={this.props.saveProfile}
+                            />}
+                        <Button
+                            variant="contained"
+                            color="default"
+                            size="small"
+                            style={styles.editButton}
+                            onClick={this.openNewPost}>
+                            <EditIcon />
+                            New Post
+                        </Button>
+                        {this.state.openNewPostDialog &&
+                            <NewPost
+                                openDialog={this.state.openNewPostDialog}
+                                closeDialog={this.closeNewPost}
+                                userInfo={this.props.userInfo}
+                                addPost={this.props.addPost}
                             />}
                     </div>
                     <div className="layout-row layout-xs-column" style={styles.heading}>

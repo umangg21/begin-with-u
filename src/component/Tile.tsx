@@ -1,5 +1,5 @@
 import React from 'react';
-import { withStyles } from '@material-ui/core';
+import { withStyles, ButtonBase, Button } from '@material-ui/core';
 import { Post, Userinfo } from '../contract/contract';
 import { styles } from './Styles';
 import ImageViewer from './ImageViewer';
@@ -9,11 +9,14 @@ interface ITileProps {
     post: Post;
     increaseLike: any;
     addComment: any;
+    deletePost: any;
 }
 
 interface ITileStates {
     openViewer: boolean;
 }
+
+
 
 export class Tile extends React.Component<ITileProps, ITileStates> {
 
@@ -34,12 +37,15 @@ export class Tile extends React.Component<ITileProps, ITileStates> {
     render() {
         return (
             <div style={styles.tileView} className="">
-
+                <Button
+                >
                 <img
                     style={styles.image}
                     onClick={this.openViewer}
                     src={this.props.post.Image}>
                 </img>
+                </Button>
+
 
                 {this.state.openViewer &&
                     <ImageViewer
@@ -49,6 +55,7 @@ export class Tile extends React.Component<ITileProps, ITileStates> {
                         closeImageView={this.closeViewer}
                         increaseLike={this.props.increaseLike}
                         addComment={this.props.addComment}
+                        deletePost={this.props.deletePost}
                     ></ImageViewer>}
             </div>
         )

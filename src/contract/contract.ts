@@ -18,6 +18,6 @@ export interface Userinfo {
 export interface Post {
     Image: string;
     likes: number;
-    timeStamp: string;
+    timestamp: string;
     comments: string[];
 }

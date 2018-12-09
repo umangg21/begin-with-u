@@ -1,7 +1,7 @@
 export const styles = {
 
     dialogHeader: {
-        height: `20px`,        
+        height: `20px`,
         backgroundColor: `#f5f5f5`,
     },
 
@@ -10,12 +10,17 @@ export const styles = {
         margin: `0px`
     },
 
-    dialogContent:{
-
+    dialogContent: {
+        padding: `20px`,
         backgroundColor: `#EEEEEE`,
     },
 
-    dialogDoodle:{
+    newPostImageContainer: {
+        overflow: `overlay`,
+        backgroundColor: `#EEEEEE`,
+    },
+
+    dialogDoodle: {
         minHeight: `fit-content`,
         backgroundColor: `#f5f5f5`,
     },
@@ -62,6 +67,11 @@ export const styles = {
         fontWeight: 500,
     },
 
+    ImageUserId: {
+        fontSize: 'x-large',
+        fontWeight: 500,
+    },
+
     heading: {
         paddingBottom: `10px`,
     },
@@ -73,6 +83,16 @@ export const styles = {
 
     editButton: {
         height: `min-content`,
+        marginRight: `20px`,
+        marginBottom: `20px`
+    },
+
+    deleteButton: {
+        height: `min-content`,
+        borderBottomColor: `#EEEEEE`,
+        borderBottomWidth: `thin`,
+        borderBottomStyle: "solid" as "solid",
+        padding: `inherit`
     },
 
     dialogButton: {
@@ -102,9 +122,16 @@ export const styles = {
     },
 
     comment: {
-        padding: `2px`,        
+        padding: `2px`,
         fontStyle: 'italic',
         paddingLeft: `4px`,
+    },
+
+    timestamp: {
+        padding: `2px`,
+        fontStyle: 'italic',
+        paddingLeft: `4px`,
+        fontSize: 'small',
     },
 
     imageDialog: {
@@ -112,7 +139,8 @@ export const styles = {
     },
 
     imageInfoDialog: {
-        padding: `20px`
+        padding: `20px`,
+        overflow: `overlay`
     },
 
     imageInfo: {
@@ -122,7 +150,14 @@ export const styles = {
         padding: `5px`
     },
 
-    addComment:{
-        minWidth: `70%`,
+    newPostHead: {
+        marginTop: `10px`,
+        marginBottom: `10px`,
+        marginLeft: `10px`,
+        marginRight: `10px`,
+    },
+
+    addComment: {
+        marginBottom: `20%`,
     },
 }

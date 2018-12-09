@@ -18,7 +18,6 @@ interface IEditProfileStates {
 
 export default class EditProfile extends React.Component<IEditProfileProps, IEditProfileStates> {
 
-
     constructor(props: any) {
         super(props)
         this.state = ({ inProgressUserinfo: this.props.userInfo });

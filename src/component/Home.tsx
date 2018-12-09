@@ -49,46 +49,36 @@ export class Home extends React.Component<IHomeProps, IHomeState> {
         this.setState({ user: { ...this.state.user, userinfo: data } })
     }
 
-    increaseLike = (postData: Post) =>{
-        let postsData= this.state.user.posts
-        let postIndex = postsData.findIndex(post => post.Image == postData.Image )
-        postsData[postIndex].likes +=1
+    increaseLike = (postData: Post) => {
+        let postsData = this.state.user.posts
+        let postIndex = postsData.findIndex(post => post.Image == postData.Image)
+        postsData[postIndex].likes += 1
         this.setState({ user: { ...this.state.user, posts: postsData } })
     }
 
-    addComment= (postData: Post, newComment: string) =>{
-        let postsData= this.state.user.posts
-        let postIndex = postsData.findIndex(post => post.Image == postData.Image )
-        if(postsData[postIndex].comments == null){
+    addComment = (postData: Post, newComment: string) => {
+        let postsData = this.state.user.posts
+        let postIndex = postsData.findIndex(post => post.Image == postData.Image)
+        if (postsData[postIndex].comments == null) {
             postsData[postIndex].comments = [];
         }
         postsData[postIndex].comments.push(newComment);
         this.setState({ user: { ...this.state.user, posts: postsData } })
     }
-    // componentDidMount() {
 
+    deletePost = (postData: Post) => {
+        let postsData = this.state.user.posts;
+        let postIndex = postsData.findIndex(post => post.Image == postData.Image);
+        postsData.splice(postIndex, 1);
+        this.setState({ user: { ...this.state.user, posts: postsData } });
+    }
 
-    //     axios(IMAGE_API,
-    //         {
-    //             method: 'GET',
-    //             headers: {
-    //                 Accept: 'application/json',
-    //                 'Content-Type': 'application/json',
-    //             },
-    //             withCredentials: true,            
-    //         })
-    //         .then((data: any) => {
-    //             console.log(data)
-    //             this.setState({
-    //                 user: { ...this.state.user, posts: data }
-    //             })
-    //         })
-    //         .catch(
-    //             ex =>
-    //                 console.log(ex)
-    //         )
-    // }
-
+    addPost = (postData: Post) => {
+        let postsData = this.state.user.posts;        
+        postsData.unshift(postData)
+        this.setState({ user: { ...this.state.user, posts: postsData } });
+    }
+    
     render() {
         return (
             <React.Fragment>
@@ -98,6 +88,7 @@ export class Home extends React.Component<IHomeProps, IHomeState> {
                         <Profile
                             userInfo={this.state.user.userinfo}
                             saveProfile={this.saveProfile}
+                            addPost={this.addPost}
                         />
                         {this.state.user.posts &&
                             <Content
@@ -105,6 +96,7 @@ export class Home extends React.Component<IHomeProps, IHomeState> {
                                 posts={this.state.user.posts}
                                 increaseLike={this.increaseLike}
                                 addComment={this.addComment}
+                                deletePost={this.deletePost}
                             />}
                     </div>
                     <div className="flex-15"></div>
