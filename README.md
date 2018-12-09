@@ -74,29 +74,29 @@ When you’re ready to deploy to production, create a minified bundle with `npm 
 5. Mobile View
 
 <p align='center'>
-<img src='https://raw.githubusercontent.com/umangg21/begin-with-u/master/Screenshots/Insta_Mobile.PNG' width='600' alt='npm start'>
+<img src='https://raw.githubusercontent.com/umangg21/begin-with-u/master/Screenshots/Insta_Mobile.PNG' width='200' alt='npm start'>
 </p>
 
 6. Mobile View 2
 
 <p align='center'>
-<img src='https://raw.githubusercontent.com/umangg21/begin-with-u/master/Screenshots/Insta_Mobile_2.PNG' width='600' alt='npm start'>
+<img src='https://raw.githubusercontent.com/umangg21/begin-with-u/master/Screenshots/Insta_Mobile_2.PNG' width='200' alt='npm start'>
 </p>
 
 7. Mobile Edit Info
 
 <p align='center'>
-<img src='https://raw.githubusercontent.com/umangg21/begin-with-u/master/Screenshots/Insta_Mobile_EditInfo.PNG' width='600' alt='npm start'>
+<img src='https://raw.githubusercontent.com/umangg21/begin-with-u/master/Screenshots/Insta_Mobile_EditInfo.PNG' width='200' alt='npm start'>
 </p>
 
 7. Mobile New Post
 
 <p align='center'>
-<img src='https://raw.githubusercontent.com/umangg21/begin-with-u/master/Screenshots/Insta_Mobile_NewPost.PNG' width='600' alt='npm start'>
+<img src='https://raw.githubusercontent.com/umangg21/begin-with-u/master/Screenshots/Insta_Mobile_NewPost.PNG' width='200' alt='npm start'>
 </p>
 
 9. Mobile Image View
 
 <p align='center'>
-<img src='https://raw.githubusercontent.com/umangg21/begin-with-u/master/Screenshots/Insta_Mobile_ImageView.PNG' width='600' alt='npm start'>
+<img src='https://raw.githubusercontent.com/umangg21/begin-with-u/master/Screenshots/Insta_Mobile_ImageView.PNG' width='200' alt='npm start'>
 </p>
