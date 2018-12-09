@@ -4,6 +4,10 @@ This is Instagram UI Mock UI developed using React with TypeScript.
 
 Instagram App is responsive App : Tested on Desktop as well as Mobile.
 
+# Link 
+
+Instagram App is also live on the following Link: https://umangg21.github.io/begin-with-u/
+
 # Functionality:
 
 ```sh
@@ -41,7 +45,7 @@ Instagram App is responsive App : Tested on Desktop as well as Mobile.
 Then open [http://localhost:3000/](http://localhost:3000/) to see your app.<br>
 When you’re ready to deploy to production, create a minified bundle with `npm run build`.
 
-#Screenshots
+# Screenshots
 
 1. Destop View
 
@@ -70,34 +74,29 @@ When you’re ready to deploy to production, create a minified bundle with `npm 
 5. Mobile View
 
 <p align='center'>
-<img src='https://raw.githubusercontent.com/umangg21/begin-with-u/master/Screenshots/Insta_Mobile.png' width='600' alt='npm start'>
+<img src='https://raw.githubusercontent.com/umangg21/begin-with-u/master/Screenshots/Insta_Mobile.PNG' width='600' alt='npm start'>
 </p>
 
 6. Mobile View 2
 
 <p align='center'>
-<img src='https://raw.githubusercontent.com/umangg21/begin-with-u/master/Screenshots/Insta_Mobile_2.png' width='600' alt='npm start'>
+<img src='https://raw.githubusercontent.com/umangg21/begin-with-u/master/Screenshots/Insta_Mobile_2.PNG' width='600' alt='npm start'>
 </p>
 
 7. Mobile Edit Info
 
 <p align='center'>
-<img src='https://raw.githubusercontent.com/umangg21/begin-with-u/master/Screenshots/Insta_Mobile_EditInfo.png' width='600' alt='npm start'>
+<img src='https://raw.githubusercontent.com/umangg21/begin-with-u/master/Screenshots/Insta_Mobile_EditInfo.PNG' width='600' alt='npm start'>
 </p>
 
 7. Mobile New Post
 
 <p align='center'>
-<img src='https://raw.githubusercontent.com/umangg21/begin-with-u/master/Screenshots/Insta_Mobile_NewPost.png' width='600' alt='npm start'>
+<img src='https://raw.githubusercontent.com/umangg21/begin-with-u/master/Screenshots/Insta_Mobile_NewPost.PNG' width='600' alt='npm start'>
 </p>
 
 9. Mobile Image View
 
 <p align='center'>
-<img src='https://raw.githubusercontent.com/umangg21/begin-with-u/master/Screenshots/Insta_Mobile_ImageView.png' width='600' alt='npm start'>
+<img src='https://raw.githubusercontent.com/umangg21/begin-with-u/master/Screenshots/Insta_Mobile_ImageView.PNG' width='600' alt='npm start'>
 </p>
-
-# Link 
-
-Instagram App is also live on the following Link:
-: https://umangg21.github.io/begin-with-u/
