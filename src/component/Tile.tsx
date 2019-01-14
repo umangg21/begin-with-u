@@ -1,5 +1,5 @@
 import React from 'react';
-import { withStyles, ButtonBase, Button } from '@material-ui/core';
+import { withStyles, Card, CardActionArea } from '@material-ui/core';
 import { Post, Userinfo } from '../contract/contract';
 import { styles } from './Styles';
 import ImageViewer from './ImageViewer';
@@ -36,15 +36,15 @@ export class Tile extends React.Component<ITileProps, ITileStates> {
 
     render() {
         return (
-            <div style={styles.tileView} className="">
-                <Button
+            <Card style={styles.tileView} className="">
+                <CardActionArea
                 >
-                <img
-                    style={styles.image}
-                    onClick={this.openViewer}
-                    src={this.props.post.Image}>
-                </img>
-                </Button>
+                    <img
+                        style={styles.image}
+                        onClick={this.openViewer}
+                        src={this.props.post.Image}>
+                    </img>
+                </CardActionArea>
 
 
                 {this.state.openViewer &&
@@ -57,7 +57,7 @@ export class Tile extends React.Component<ITileProps, ITileStates> {
                         addComment={this.props.addComment}
                         deletePost={this.props.deletePost}
                     ></ImageViewer>}
-            </div>
+            </Card>
         )
     }
 }
